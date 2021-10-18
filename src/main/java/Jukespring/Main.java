@@ -1,4 +1,5 @@
 package Jukespring;
+import com.google.gson.Gson;
 import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,13 +47,12 @@ public class Main {
 
 
 
-
-
-
-
     }
 
-
+    public String  toString(){
+        Album al = new Album();
+        String json = new Gson().toJson(al);
+        return  json;}
 
     @CrossOrigin("http://localhost:3000")
     @GetMapping("/customRoute")
@@ -67,7 +67,7 @@ public class Main {
         Fleetwood fl = new Fleetwood();
         return fl.toString();
     }
-    @CrossOrigin("http://localhost:3000")
+   @CrossOrigin("http://localhost:3000")
     @GetMapping("/albumchoice2")
     public String albumchoicekw(){
         Kanye kw = new Kanye();

@@ -1,5 +1,4 @@
 package Jukespring;
-
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,6 +16,9 @@ public class Album {
         this.genre = genre;
 
     }
+
+
+
 
     public List<String> albumname() {
         List<String> albums = new ArrayList<String>();
@@ -57,11 +59,13 @@ public class Album {
 
         return artist;
     }
+    @Override
     public String  toString(){
-        Album al = new Album();
-        String json = new Gson().toJson(al.albumname());
-        return  json;
-
+        return  "{" +
+                "\"Title\": \"" + albumname().get(0)  +
+                "\", \"Genre\":\"" +  genretype().get(0) +
+                "\", \"Artist\":\"" + artistname().get(0) +
+                "\"}";
 
 
 
